@@ -1,20 +1,20 @@
 <template>
-  <li>
-    <base-card>
-      <header>
-        <h3>{{ title }}</h3>
-        <button>Delete</button>
-      </header>
-    <p>{{ description }}</p>
-    <nav>
-        <a :href="link">Resources View</a>
-    </nav>
-</base-card>
-  </li>
+    <li>
+        <base-card>
+            <header>
+                <h3>{{ title }}</h3>
+                <base-button mode="flat">Delete</base-button>
+            </header>
+         <p>{{ description }}</p>
+        <nav>
+            <a :href="link">View Resources</a>
+        </nav>
+        </base-card>
+    </li>
 </template>
 <script>
 export default {
-props:['title','description','link'],
+    props:['title','description','link']
 }
 </script>
 <style scoped>
@@ -47,4 +47,4 @@ a:hover,
 a:active {
   color: #c89300;
 }
-</style>>
+</style>
