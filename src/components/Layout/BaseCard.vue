@@ -11,4 +11,5 @@ div {
   margin: 2rem auto;
   max-width: 40rem;
 }
+
 </style>

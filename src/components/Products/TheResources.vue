@@ -1,7 +1,7 @@
 <template>
     <base-card>
     <base-button @click="setComponentId('stored-resource')" :mode="storedSelected">View Resources</base-button>
-    <base-button @click="setComponentId('add-resources')" :mode="addSelected">Add Resources</base-button>
+    <base-button @enteredData="AddResources" @click="setComponentId('add-resources')" :mode="addSelected">Add Resources</base-button>
 </base-card>
     <keep-alive>
         <component :is="componentId"></component>
@@ -12,6 +12,7 @@ import StoredResource from './StoredResource.vue';
 import AddResources from './AddResources.vue';
 
 export default {
+    emits:['enteredData'],
     data(){
         return {
             componentId:'stored-resource',
@@ -52,6 +53,15 @@ export default {
     methods:{
         setComponentId(id){
             this.componentId=id;
+        },
+        AddResources(title,description,link){
+            const newData={
+                id:new Date().toISOString(),
+                title,
+                description,
+                link
+            };
+            this.StoredResources.push(newData);
         }
     }
 }
